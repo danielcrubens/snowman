@@ -1,21 +1,22 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
-import type { Book, Rental } from '@/types'
+import type { Book } from '@/types/Book'
+import type { Rental } from '@/types/Rental'
+
 import { useMockApiService } from '@/services/mockApiService'
 
 export const useBookStore = defineStore('books', () => {
-  // Initialize the books array as a ref
   const books = ref<Book[]>([])
   const rentals = ref<Rental[]>([])
   const { getBooks, rentBook: apiRentBook } = useMockApiService()
 
-  // Fetch books when store is initialized
+  // Buscar livros quando a store for inicializada
   const initializeBooks = async () => {
     try {
       const fetchedBooks = await getBooks()
       books.value = fetchedBooks
     } catch (error) {
-      console.error('Failed to initialize books:', error)
+      console.error('Falha ao inicializar os livros:', error)
       books.value = []
     }
   }
@@ -26,19 +27,19 @@ export const useBookStore = defineStore('books', () => {
 
   const processBookRental = async (bookId: string, userId: string) => {
     try {
-      // First check if the book exists and is available
+      // Primeiro, verificar se o livro existe e está disponível
       const book = books.value.find(b => b.id === bookId)
       if (!book) {
-        throw new Error('Book not found')
+        throw new Error('Livro não encontrado')
       }
       if (!book.available) {
-        throw new Error('Book is not available')
+        throw new Error('O livro não está disponível')
       }
 
       const rental = await apiRentBook(bookId, userId)
       rentals.value.push(rental)
       
-      // Update book availability
+      // Atualizar a disponibilidade do livro
       const bookIndex = books.value.findIndex(b => b.id === bookId)
       if (bookIndex !== -1) {
         books.value[bookIndex].available = false
@@ -46,12 +47,12 @@ export const useBookStore = defineStore('books', () => {
 
       return rental
     } catch (error) {
-      console.error('Rental failed:', error)
+      console.error('Falha no aluguel:', error)
       throw error
     }
   }
 
-  // Initialize books when store is created
+  // Inicializar os livros quando a store for criada
   initializeBooks()
 
   return {
