@@ -1,0 +1,23 @@
+{
+  "app_title": "Welcome to",
+  "catalog": "Catalog",
+  "my_rentals": "My Rentals",
+  "rent": "Rent",
+  "rent_book": "Rent Book",
+  "book_catalog": "Book Catalog",
+  "available": "Available",
+  "unavailable": "Unavailable",
+  "confirm_rental_title": "Confirm Rental",
+  "confirm_rental_message": "Do you want to rent the book",
+  "cancel": "Cancel",
+  "confirm": "Confirm",
+  "rental_success_message": "Book successfully rented!",
+  "rental_failed_message": "Failed to rent the book",
+  "rental_cancelled_message": "Rental canceled",
+  "book_not_found": "Book not found",
+  "no_rentals": "No books rented at the moment",
+  "book_id": "Book ID",
+  "rental_date": "Rental Date",
+  "return_date": "Return Date",
+  "copyright": "© {year} Book Rental Platform. All rights reserved."
+}

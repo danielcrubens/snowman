@@ -1,0 +1,23 @@
+{
+  "app_title": "Bem-vindo ao",
+  "catalog": "Catálogo",
+  "my_rentals": "Meus Aluguéis",
+  "rent": "Alugar",
+  "rent_book": "Alugar Livro",
+  "book_catalog": "Catálogo de Livros",
+  "available": "Disponível",
+  "unavailable": "Indisponível",
+  "confirm_rental_title": "Confirmar Aluguel",
+  "confirm_rental_message": "Você deseja alugar o livro",
+  "cancel": "Cancelar",
+  "confirm": "Confirmar",
+  "rental_success_message": "Livro alugado com sucesso!",
+  "rental_failed_message": "Falha ao alugar o livro",
+  "rental_cancelled_message":"Aluguel cancelado",
+  "book_not_found": "Livro não encontrado",
+  "no_rentals": "Nenhum livro alugado no momento",
+  "book_id": "ID do Livro",
+  "rental_date": "Data de Aluguel",
+  "return_date": "Data de Devolução",
+  "copyright": "© {year} Plataforma de Aluguel de Livros. Todos os direitos reservados."
+}
