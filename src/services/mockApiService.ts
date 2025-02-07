@@ -1,4 +1,5 @@
-import type { Book, Rental } from '@/types'
+import type { Book } from '@/types/Book'
+import type {Rental} from '@/types/Rental'
 
 class MockApiService {
   private books: Book[] = [
