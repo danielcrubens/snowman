@@ -1,3 +1,4 @@
+const colors =require('tailwindcss/colors')
 export default {
   content: [
     "./index.html",
@@ -9,6 +10,17 @@ export default {
         sans: "Poppins",
       },
     },
+    colors: {
+      ...colors,
+     'dark':{
+          DEFAULT:'#292929',          
+        },
+        'blue':{
+          DEFAULT:'#317ef2',
+          
+        },
+      
+    }
   },
   plugins: [],
 }
