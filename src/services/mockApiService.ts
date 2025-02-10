@@ -109,7 +109,7 @@ class MockApiService {
   }
 }
 
-export const useMockApiService = () => {
+export default function useMockApiService() {
   const apiService = new MockApiService()
   
   return {

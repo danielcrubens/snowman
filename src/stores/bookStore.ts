@@ -3,7 +3,7 @@ import { ref, computed } from 'vue'
 import type { Book } from '@/types/Book'
 import type { Rental } from '@/types/Rental'
 
-import { useMockApiService } from '@/services/mockApiService'
+import useMockApiService from '@/services/mockApiService'
 
 export const useBookStore = defineStore('books', () => {
   const books = ref<Book[]>([])

@@ -19,10 +19,11 @@
 
 <script setup lang="ts">
 import { ref, onMounted, inject } from 'vue'
-import { useMockApiService } from '@/services/mockApiService'
+import useMockApiService from '@/services/mockApiService'
 import { useBookRental } from '@/composables/useBookRental'
 import BookCard from '@/components/books/BookCard.vue'
 import { useI18n } from 'vue-i18n'
+import type { Book } from '@/types/Book'
 
 const { t } = useI18n()
 const { getBooks } = useMockApiService()
@@ -31,9 +32,9 @@ const { rentBook } = useBookRental()
 const showAlert = inject('showAlert') as (message: string, type: 'success' | 'error' | 'warning') => void
 const showModal = inject('showModal') as (title: string, message: string, bookTitle?: string) => Promise<boolean>
 
-const books = ref([])
+const books = ref<Book[]>([])
 const loading = ref(true)
-const error = ref(null)
+const error = ref<string | null>(null)
 
 onMounted(async () => {
   try {
@@ -44,12 +45,12 @@ onMounted(async () => {
     loading.value = false
   } catch (err) {
     console.error('Error fetching books:', err)
-    error.value = err.message
+    error.value = (err as Error).message
     loading.value = false
   }
 })
 
-const handleRent = async (book) => {
+const handleRent = async (book: Book) => {
   const success = await rentBook(book)
   if (success) {
     showAlert(t('rental_success_message', { title: book.title }), 'success') 
@@ -58,7 +59,7 @@ const handleRent = async (book) => {
   }
 }
 
-const handleShowModal = async ({ title, message, book }) => {
+const handleShowModal = async ({ title, message, book }: { title: string, message: string, book: Book }) => {
   const confirmed = await showModal(title, message, book.title)
   if (confirmed) {
     handleRent(book)

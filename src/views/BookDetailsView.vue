@@ -39,7 +39,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-import { useMockApiService } from '@/services/mockApiService'
+import useMockApiService from '@/services/mockApiService'
 import { useI18n } from 'vue-i18n'
 import type { Book } from '@/types/Book'
 const route = useRoute()
@@ -51,6 +51,7 @@ const book = ref<Book | null>(null)
 const loading = ref(true)
 const error = ref<string | null>(null)
 
+
 onMounted(async () => {
   try {
     const bookId = route.params.id as string
@@ -59,7 +60,11 @@ onMounted(async () => {
     const fetchedBook = await getBookById(bookId)
     console.log('Fetched book:', fetchedBook)
     
-    book.value = fetchedBook
+    if (fetchedBook) {
+      book.value = fetchedBook
+    } else {
+      error.value = 'Book not found'
+    }
     loading.value = false
   } catch (err) {
     console.error('Error fetching book details:', err)

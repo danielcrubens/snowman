@@ -1,6 +1,6 @@
 <template>
   <div class="w-11/12 mx-auto">
-    <h1 class="text-3xl font-bold mb-6">{{ $t('my_rentals') }}</h1>
+    <h1 class="text-xl md:text-3xl text-dark font-bold mb-6">{{ $t('my_rentals') }}</h1>
     <div class="">
     <div v-if="bookStore.rentals.length === 0" class="text-center text-gray-500">
       {{ $t('no_rentals') }}

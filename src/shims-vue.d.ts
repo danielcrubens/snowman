@@ -4,7 +4,3 @@ declare module '*.vue' {
   export default component
 }
 
-declare module '@/services/mockApiService' {
-  const mockApiService: any;
-  export default mockApiService;
-}
