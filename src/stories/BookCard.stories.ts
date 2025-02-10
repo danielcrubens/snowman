@@ -8,12 +8,14 @@ const meta = {
  
   args: {
     book: {
-      id: 1,
+      id: '1',
       title: 'Meteor Falls',
       author: 'John Doe',
       coverUrl: 'https://i.imgur.com/Uw86zzN_d.webp?maxwidth=760&fidelity=grand',
       price: 29.99,
-      available: true
+      available: true,
+      description: 'Um livro sobre Vectober por Bárbara Ghirello.'
+
     }
   },
 
@@ -57,12 +59,14 @@ export const VersãoInglês: Story = {
 export const VersãoIndisponível: Story = {
   args: {
     book: {
-      id: 2,
+      id: '2',
       title: 'Vectober de Bárbara Ghirello',
       author: 'Bárbara Ghirello',
       coverUrl: 'https://i.imgur.com/rVQA8pp_d.webp?maxwidth=760&fidelity=grand',
       price: 39.99,
-      available: false
+      available: false,
+      description: 'Um livro sobre Vectober por Bárbara Ghirello.'
+
       
     }
   },

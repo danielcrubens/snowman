@@ -23,14 +23,16 @@ const meta = {
         const bookStore = initializeStore();
         bookStore.rentals = [
           {
-            id: 1,
+            id: '1', // Corrigido para string
             bookId: 'book-1',
+            userId: 'user-1', // Adicionado userId
             rentalDate: new Date('2024-02-01'),
             returnDate: new Date('2024-02-15')
           },
           {
-            id: 2,
+            id: '2', // Corrigido para string
             bookId: 'book-2',
+            userId: 'user-2', // Adicionado userId
             rentalDate: new Date('2024-02-05'),
             returnDate: new Date('2024-02-19')
           }
@@ -52,8 +54,9 @@ export const VersãoPortuguês: Story = {
         const bookStore = initializeStore();
         bookStore.rentals = [
           {
-            id: 1,
+            id: '1', // Corrigido para string
             bookId: 'book-1',
+            userId: 'user-1', // Adicionado userId
             rentalDate: new Date('2024-02-01'),
             returnDate: new Date('2024-02-15')
           }
@@ -74,8 +77,9 @@ export const VersãoInglês: Story = {
         const bookStore = initializeStore();
         bookStore.rentals = [
           {
-            id: 1,
+            id: '1', // Corrigido para string
             bookId: 'book-1',
+            userId: 'user-1', // Adicionado userId
             rentalDate: new Date('2024-02-01'),
             returnDate: new Date('2024-02-15')
           }
@@ -87,4 +91,3 @@ export const VersãoInglês: Story = {
     }),
   ],
 };
-
